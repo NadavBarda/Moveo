@@ -1,0 +1,25 @@
+@if (loading()) {
+
+<mat-spinner class="spinner"></mat-spinner>
+
+}
+@else {
+<mat-card class="profile-card">
+
+    <button type="button" (click)="handleLogout()">logout</button>
+
+    <h2>User Profile</h2>
+
+    <div class="profile-field">
+        <strong>Name:</strong> {{ user()?.name }}
+    </div>
+
+    <div class="profile-field">
+        <strong>Email:</strong> {{ user()?.email }}
+    </div>
+
+    <div class="profile-field">
+        <strong>Age:</strong> {{ user()?.age }}
+    </div>
+</mat-card>
+}
