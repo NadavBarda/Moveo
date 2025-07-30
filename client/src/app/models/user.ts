@@ -1,15 +1,3 @@
-export interface LoginInput {
-  email: string;
-  password: string;
-}
+import { RegisterInput } from './auth-interface';
 
-export interface RegisterInput extends LoginInput {
-  name: string;
-  age: number;
-}
-
-export interface User {
-  email: string;
-  name: string;
-  age: number;
-}
+export interface User extends Omit<RegisterInput, 'password'> {}

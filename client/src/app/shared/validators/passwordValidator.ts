@@ -29,3 +29,4 @@ export const passwordValidator: ValidatorFn = (
 
   return Object.keys(errors).length > 0 ? errors : null;
 };
+

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
@@ -7,8 +7,8 @@ import {
   signOut,
 } from 'firebase/auth';
 import { doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
-import { RegisterInput, User } from '../models/user';
-import { environment } from '../../environments/environment';
+import { RegisterInput } from '../models/auth-interface';
+import { User } from '../models/user';
 
 //meed to replace
 const firebaseConfig = {
@@ -30,6 +30,7 @@ export class FirebaseService {
   private _app = initializeApp(firebaseConfig);
   private _auth = getAuth(this._app);
   private _db = getFirestore(this._app);
+  
 
   get app() {
     return this._app;

@@ -1,17 +1,43 @@
+.spinner {
+  display: block;
+  margin: 100px auto;
+}
+
 .profile-card {
   max-width: 500px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+  margin: 40px auto;
+  padding: 1.6rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .profile-field {
-  margin: 1rem 0;
+  margin: 10px 0;
   font-size: 16px;
+  font-weight: 550;
 }
 
-.spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.profile-field strong{
+  margin-right: 0.5rem;
 }
+
+.address-section {
+  margin-top: 20px;
+  padding-top: 10px;
+}
+.address-section-body{
+  margin-left: 5%;
+}
+
+.address-section-body strong{
+  font-size: 0.9rem;
+  
+}
+

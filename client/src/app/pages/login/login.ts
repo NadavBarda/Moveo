@@ -6,8 +6,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { passwordValidator } from '../../shared/validators/passwordValidator';
 import { AuthService } from '../../services/auth';
-import { LoginInput } from '../../models/user';
+import { LoginInput } from '../../models/auth-interface';
 import { Router, RouterLink } from '@angular/router';
+import { CancelAutoFill } from '../../component/cancel-auto-fill/cancel-auto-fill';
+import { createLoginForm } from '../../shared/utils/forms';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +20,7 @@ import { Router, RouterLink } from '@angular/router';
     MatButtonModule,
     ReactiveFormsModule,
     RouterLink,
+    CancelAutoFill,
   ],
   templateUrl: './login.html',
   styleUrl: './login.css',
@@ -29,10 +32,7 @@ export class Login {
   loading = signal(false);
   message = signal('');
 
-  loginForm = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', passwordValidator],
-  });
+  loginForm = createLoginForm(this.fb);
 
   async onSubmit() {
     if (this.loginForm.invalid) return;

@@ -1,0 +1,41 @@
+.header-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(249, 249, 239, 0.224);
+  box-shadow: 0 4px 32px rgba(60, 60, 60, 0.386);
+  border-bottom: 1px solid rgba(245, 245, 220, 0.45);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-bottom: 1rem;
+}
+
+.app-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  margin-right: 1.5rem;
+}
+
+a[mat-button].active-link {
+  font-weight: bold;
+  font-size: 1rem;
+}
+.right-side {
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.username {
+  font-weight: bolder;
+  color: #181818;
+  font-size: 1rem;
+}
+
+.logout-btn {
+  background: rgb(255, 195, 195);
+}

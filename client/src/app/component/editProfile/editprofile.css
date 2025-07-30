@@ -1,0 +1,29 @@
+.edit-profile-card {
+  position: relative;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.control-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancel-btn {
+  font-size: 0.85rem;
+  padding: 0.2rem 0.9rem;
+  border-radius: 7px;
+  font-weight: 500;
+  background: rgba(200, 60, 60, 0.176);
+  color: #c43d3d;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5vw;
+  width: 100%;
+  position: relative;
+}

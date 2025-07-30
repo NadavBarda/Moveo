@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="header-toolbar">
+
+    <div class="left-side"><span class="app-title" routerLink="/" style="cursor:pointer">MyApp</span>
+        <span class="spacer"></span>
+
+        <a mat-button routerLink="/profile" routerLinkActive="active-link">Profile</a>
+        <span class="spacer"></span>
+    </div>
+    <div class="right-side">
+        @if (user()) {
+        <button mat-button="fill" class="logout-btn" (click)="logout()">logout</button>
+        <span class="username">Hello, {{ user()?.name }}</span>
+
+        }
+        @else {
+        <a mat-button routerLink="/login" routerLinkActive="active-link">Login</a>
+        }
+
+    </div>
+
+
+</mat-toolbar>

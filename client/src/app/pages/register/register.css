@@ -21,3 +21,20 @@
 a {
   margin-left: 5px;
 }
+.register-card {
+  max-width: 500px;
+  margin: auto;
+  padding: 24px;
+}
+
+
+
+mat-label,
+input,
+mat-error {
+  font-size: 14px;
+}
+
+input {
+  height: 24px;
+}

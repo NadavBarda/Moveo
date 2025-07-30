@@ -1,25 +1,46 @@
 @if (loading()) {
-
 <mat-spinner class="spinner"></mat-spinner>
-
 }
 @else {
 <mat-card class="profile-card">
-
-    <button type="button" (click)="handleLogout()">logout</button>
-
-    <h2>User Profile</h2>
-
-    <div class="profile-field">
-        <strong>Name:</strong> {{ user()?.name }}
+    <div class="profile-header">
+        <h2>User Profile</h2>
+        @if (!inEditMode()) {
+        <button matButton="filled" (click)="setEdit()">{{inEditMode()? 'Cancel Changes' : 'Edit Profile'}}</button>
+        }
     </div>
 
-    <div class="profile-field">
-        <strong>Email:</strong> {{ user()?.email }}
+    @if(inEditMode()){
+    <app-edit-profile (changesSaved)="handleProfileUpdated()"></app-edit-profile>
+    }
+    @else {
+
+    <div class="top-profile">
+        <div class="profile-field">
+            <strong>Name:</strong> {{ user()?.name }}
+        </div>
+
+        <div class="profile-field">
+            <strong>Email:</strong> {{ user()?.email }}
+        </div>
+
+        <div class="profile-field">
+            <strong>Birth Date:</strong> {{ user()?.birthDate }}
+        </div>
     </div>
 
-    <div class="profile-field">
-        <strong>Age:</strong> {{ user()?.age }}
+
+
+    <div class="address-section">
+        <h3>Address</h3>
+        <div class="address-section-body">
+            <div class="profile-field"><strong>Country:</strong> {{ user()?.address!.country }}</div>
+            <div class="profile-field"><strong>City:</strong> {{ user()?.address!.city }}</div>
+            <div class="profile-field"><strong>Street:</strong> {{ user()?.address!.street }}</div>
+            <div class="profile-field"><strong>House Number:</strong> {{ user()?.address!.houseNumber }}</div>
+        </div>
+
     </div>
+    }
 </mat-card>
 }

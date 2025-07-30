@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { LoginInput, RegisterInput, User } from '../models/user';
 import { UserService } from './user';
 import { FirebaseService } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import { LoginInput, RegisterInput } from '../models/auth-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +15,28 @@ export class AuthService {
     this.reloadUserData();
   }
 
-  public reloadUserData() {
-    onAuthStateChanged(this.firebaseService.auth, async (firebaseUser) => {
-      if (!firebaseUser) return;
-      try {
-        const user = await this.firebaseService.getUserData(firebaseUser.uid);
-        this.userService.loggedUser.set(user);
-      } catch (err) {
-        console.error('constructor():', err);
-      }
+  public reloadUserData(): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const unsubscribe = onAuthStateChanged(
+        this.firebaseService.auth,
+        async (firebaseUser) => {
+          unsubscribe();
+          if (!firebaseUser) {
+            resolve();
+            return;
+          }
+          try {
+            const user = await this.firebaseService.getUserData(
+              firebaseUser.uid
+            );
+            this.userService.loggedUser.set(user);
+            resolve();
+          } catch (err) {
+            console.error('reloadUserData():', err);
+            reject(err);
+          }
+        }
+      );
     });
   }
 
