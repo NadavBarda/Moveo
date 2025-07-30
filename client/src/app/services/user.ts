@@ -24,5 +24,6 @@ export class UserService {
   async logout() {
     this.loggedUser.set(null);
     await this.firebaseService.logout();
+  
   }
 }

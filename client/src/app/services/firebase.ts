@@ -30,7 +30,6 @@ export class FirebaseService {
   private _app = initializeApp(firebaseConfig);
   private _auth = getAuth(this._app);
   private _db = getFirestore(this._app);
-  
 
   get app() {
     return this._app;
@@ -55,7 +54,9 @@ export class FirebaseService {
   }
 
   async logout() {
+    
     const res = await signOut(this._auth);
+   
   }
 
   async createUser(registerInput: RegisterInput) {

@@ -1,22 +1,6 @@
-import {
-  Component,
-  inject,
-  input,
-  effect,
-  signal,
-  OnInit,
-  OnDestroy,
-  Signal,
-  output,
-} from '@angular/core';
+import { Component, inject, signal, output } from '@angular/core';
 import { User } from '../../models/user';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { createBaseForm } from '../../shared/utils/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,10 +10,10 @@ import { MatCard } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { AddressField } from '../../pages/register/address-field/address-field';
 import { MatIconModule } from '@angular/material/icon';
-import { Subscription } from 'rxjs';
+
 import { UserService } from '../../services/user';
 import { AddressFormGroup } from '../../models/forms';
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-edit-profile',
@@ -45,8 +29,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
     FormsModule,
     AddressField,
     CommonModule,
-    MatProgressSpinnerModule
-],
+    MatProgressSpinnerModule,
+  ],
   templateUrl: './editprofile.html',
   styleUrl: './editprofile.css',
 })

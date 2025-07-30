@@ -18,21 +18,12 @@ export class Profile {
   inEditMode = signal(false);
 
   user = this.userService.loggedUser;
-  loading = signal(true);
-
-  constructor() {
-    effect(() => this.loading.set(this.user() === null));
-  }
+  loading = computed(() => this.user === null);
 
   setEdit() {
     this.inEditMode.update((val) => !val);
   }
   handleProfileUpdated() {
     this.setEdit();
-  }
-
-  async handleLogout() {
-    await this.userService.logout();
-    this.router.navigate(['login']);
   }
 }
