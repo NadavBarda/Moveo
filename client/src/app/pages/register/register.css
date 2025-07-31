@@ -1,27 +1,4 @@
 .register-card {
-  padding: 2rem;
-  max-width: 400px;
-  margin: 2rem auto;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.error {
-  color: red;
-  font-size: 12px;
-}
-
-.login-link {
-  text-align: center;
-  margin-top: 1rem;
-}
-
-a {
-  margin-left: 5px;
-}
-.register-card {
   max-width: 500px;
   margin: auto;
   padding: 24px;
@@ -29,12 +6,3 @@ a {
 
 
 
-mat-label,
-input,
-mat-error {
-  font-size: 14px;
-}
-
-input {
-  height: 24px;
-}

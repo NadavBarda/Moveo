@@ -1,0 +1,9 @@
+<mat-form-field class="full-width">
+    <mat-label>{{ label() }}</mat-label>
+    <input matInput [type]="inputType()!" [formControl]="control()!" />
+    <div class="error">
+        @for (errorMsg of messages; track $index) {
+        <small>{{errorMsg}}</small>
+        }
+    </div>
+</mat-form-field>

@@ -1,8 +1,10 @@
-<div class="register-link">
-    <span>Don't have an account?</span>
-    <a routerLink="/register">Register here</a>
-</div>
+<div class="login-footer">
+    <div class="register-link">
+        <span>Don't have an account?</span>
+        <a routerLink="/register">Register here</a>
+    </div>
 
-@if (message()) {
-<p class="error">Wrong email or password!</p>
-}
+    @if (message()) {
+    <p class="error">Wrong email or password!</p>
+    }
+</div>

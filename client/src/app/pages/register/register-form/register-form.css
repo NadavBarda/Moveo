@@ -1,13 +1,9 @@
-form {
+.register-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-  gap: 20px;
+  align-items: center;
 }
-
 
 .full-width {
   width: 100%;
 }
-

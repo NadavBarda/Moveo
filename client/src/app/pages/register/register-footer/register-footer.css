@@ -1,0 +1,11 @@
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+a {
+  margin-left: 5px;
+}
+.error {
+  color: red;
+}

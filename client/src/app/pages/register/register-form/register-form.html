@@ -1,0 +1,24 @@
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <app-cancel-auto-fill></app-cancel-auto-fill>
+
+    <app-input-field class="full-width" [control]="getControl('name')" [inputType]="'text'" [label]="'Full Name'"
+        [validationMessages]="validator_map['name']" />
+    <app-input-field class="full-width" [control]="getControl('email')" [inputType]="'email'" [label]="'Email'"
+        [validationMessages]="validator_map['email']" />
+
+    <app-password-field class="full-width" [control]="getControl('password')" [inputType]="'text'" [label]="'Password'"
+        [validationMessages]="validator_map['password']"></app-password-field>
+
+    <mat-form-field class="birthdate-field">
+        <mat-label>Birthday</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="birthDate" placeholder="MM/DD/YYYY">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <app-address-field [addressForm]="addressForm"></app-address-field>
+
+    <button mat-raised-button color="primary" type="submit">
+        Register
+    </button>
+</form>

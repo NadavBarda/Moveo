@@ -3,13 +3,13 @@
 }
 @else {
 <mat-card class="profile-card">
+    @if (!inEditMode()) {
     <div class="profile-header">
         <h2>User Profile</h2>
-        @if (!inEditMode()) {
         <button matButton="filled" (click)="setEdit()">{{inEditMode()? 'Cancel Changes' : 'Edit Profile'}}</button>
-        }
-    </div>
 
+    </div>
+    }
     @if(inEditMode()){
     <app-edit-profile (changesSaved)="handleProfileUpdated()"></app-edit-profile>
     }

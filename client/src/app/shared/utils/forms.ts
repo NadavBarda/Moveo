@@ -1,4 +1,4 @@
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { passwordValidator } from '../validators/passwordValidator';
 import { User } from '../../models/user';
 import { Address } from '../../models/address';
@@ -16,6 +16,9 @@ export function createBaseForm(fb: FormBuilder, user: User) {
     birthDate: fb.control(user.birthDate, Validators.required),
     address: createAddressFormGroup(fb, user.address),
   });
+}
+export function getFormControl(name: string, form: FormGroup) {
+  return form.get(name) as FormControl;
 }
 
 export function createLoginForm(fb: FormBuilder) {

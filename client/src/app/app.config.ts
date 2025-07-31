@@ -1,21 +1,20 @@
 import {
   ApplicationConfig,
-  inject,
   provideAppInitializer,
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { AuthService } from './services/auth';
+import { authProvider } from './providers/auth.provider';
+import { matStyle } from './providers/angular-material.provider';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideAppInitializer(() => {
-      inject(AuthService);
-    }),
+    provideAppInitializer(authProvider),
+    matStyle,
   ],
 };

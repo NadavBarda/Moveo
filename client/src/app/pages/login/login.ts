@@ -3,14 +3,13 @@ import { MatCard } from '@angular/material/card';
 import { AuthService } from '../../services/auth';
 import { LoginInput } from '../../models/auth-interface';
 import { Router } from '@angular/router';
-import { CancelAutoFill } from '../../component/cancel-auto-fill/cancel-auto-fill';
 import { LoginHeader } from './login-header/login-header';
 import { LoginForm } from './login-form/login-form';
 import { LoginFooter } from "./login-footer/login-footer";
 
 @Component({
   selector: 'app-login',
-  imports: [CancelAutoFill, LoginHeader, LoginForm, MatCard, LoginFooter],
+  imports: [ LoginHeader, LoginForm, MatCard, LoginFooter],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

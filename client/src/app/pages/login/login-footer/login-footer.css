@@ -6,3 +6,7 @@
 a{
   margin-left: 5px;
 }
+.register-link{
+  display: flex;
+  justify-content: center;
+}

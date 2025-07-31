@@ -1,5 +1,7 @@
-import { FormControl, FormGroup } from "@angular/forms";
-import { Address } from "./address";
+import { FormControl, FormGroup } from '@angular/forms';
+import { Address } from './address';
+
+export type ValidationMessageMap = Record<string, string>;
 
 export const initAddressValue: Address = {
   country: '',
@@ -19,8 +21,7 @@ export type EditForm = {
   address: AddressFormGroup;
 };
 
-export interface RegisterForm extends EditForm, LoginForm {
-}
+export interface RegisterForm extends EditForm, LoginForm {}
 
 export type AddressFormGroup = FormGroup<{
   country: FormControl<string | null>;
