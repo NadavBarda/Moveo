@@ -27,3 +27,12 @@
   width: 100%;
   position: relative;
 }
+
+
+.user-fields {
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;                     
+}
+

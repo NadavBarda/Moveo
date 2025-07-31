@@ -2,7 +2,9 @@ import { Injectable, signal } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
+  EmailAuthProvider,
   getAuth,
+  reauthenticateWithCredential,
   signInWithEmailAndPassword,
   signOut,
 } from 'firebase/auth';
@@ -54,9 +56,14 @@ export class FirebaseService {
   }
 
   async logout() {
-    
-    const res = await signOut(this._auth);
-   
+    await signOut(this._auth);
+  }
+
+  async reAuthenticate(password: string) {
+    const user = this._auth.currentUser;
+    if (!user || !user.email) throw new Error('No authenticated user');
+    const credential = EmailAuthProvider.credential(user.email, password);
+    return await reauthenticateWithCredential(user, credential);
   }
 
   async createUser(registerInput: RegisterInput) {

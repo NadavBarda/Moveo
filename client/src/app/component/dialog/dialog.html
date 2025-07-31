@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Confirm Account Deletion</h2>
+<mat-dialog-content>
+  <p>
+    To confirm deletion, please enter your password:
+  </p>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput type="password" [(ngModel)]="password"/>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNo()">Cancel</button>
+  <button mat-raised-button color="warn" [disabled]="!password" (click)="onYes()">
+    Delete
+  </button>
+</mat-dialog-actions>

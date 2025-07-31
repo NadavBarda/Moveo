@@ -2,7 +2,7 @@ import { Component, inject, output, signal } from '@angular/core';
 import { AddressField } from '../address-field/address-field';
 import { MatInputModule } from '@angular/material/input';
 import { CancelAutoFill } from '../../../component/cancel-auto-fill/cancel-auto-fill';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import {
   createRegisterForm,
   getFormControl,
@@ -55,10 +55,7 @@ export class RegisterForm {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value.birthDate);
     if (this.registerForm.invalid) return;
-    
-    
     this.registerTrigger.emit(this.registerForm.value as RegisterInput);
   }
 }

@@ -65,6 +65,7 @@ export class AuthService {
       throw err;
     }
   }
+  
 
   async logout(): Promise<void> {
     await this.firebaseService.logout();

@@ -1,4 +1,9 @@
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { passwordValidator } from '../validators/passwordValidator';
 import { User } from '../../models/user';
 import { Address } from '../../models/address';
@@ -9,11 +14,12 @@ import {
   LoginForm,
   RegisterForm,
 } from '../../models/forms';
+import { birthdayValidator } from '../validators/dateValidator';
 
 export function createBaseForm(fb: FormBuilder, user: User) {
   return fb.group<EditForm>({
     name: fb.control(user.name, Validators.required),
-    birthDate: fb.control(user.birthDate, Validators.required),
+    birthDate: fb.control(user.birthDate, [birthdayValidator]),
     address: createAddressFormGroup(fb, user.address),
   });
 }
@@ -31,7 +37,7 @@ export function createLoginForm(fb: FormBuilder) {
 export function createRegisterForm(fb: FormBuilder) {
   return fb.group<RegisterForm>({
     name: fb.control('', Validators.required),
-    birthDate: fb.control('', Validators.required),
+    birthDate: fb.control('', [birthdayValidator]),
     address: createAddressFormGroup(fb),
     password: fb.control('', passwordValidator),
     email: fb.control('', [Validators.required, Validators.email]),

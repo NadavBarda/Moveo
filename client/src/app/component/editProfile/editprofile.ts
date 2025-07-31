@@ -1,7 +1,7 @@
 import { Component, inject, signal, output } from '@angular/core';
 import { User } from '../../models/user';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { createBaseForm } from '../../shared/utils/forms';
+import { createBaseForm, getFormControl } from '../../shared/utils/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserService } from '../../services/user';
 import { AddressFormGroup } from '../../models/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InputField } from '../input-field/input-field';
+import { EDIT_PROFILE_VALIDATION_MESSAGES } from '../../models/input.model';
 
 @Component({
   selector: 'app-edit-profile',
@@ -30,6 +32,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     AddressField,
     CommonModule,
     MatProgressSpinnerModule,
+    InputField,
   ],
   templateUrl: './editprofile.html',
   styleUrl: './editprofile.css',
@@ -37,16 +40,20 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 export class Editprofile {
   private fb = inject(FormBuilder);
   private userService = inject(UserService);
+  
   changesSaved = output();
 
   initValue = this.userService.loggedUser();
   editForm = createBaseForm(this.fb, this.initValue!);
   loading = signal(false);
+  readonly validator_map = EDIT_PROFILE_VALIDATION_MESSAGES;
 
   get addressForm(): AddressFormGroup {
     return this.editForm.get('address') as AddressFormGroup;
   }
-
+  getControl(name: string) {
+    return getFormControl(name, this.editForm);
+  }
   async saveChanges() {
     if (this.editForm.invalid) return;
     if (!this.initValue) return;

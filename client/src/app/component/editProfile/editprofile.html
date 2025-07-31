@@ -1,25 +1,26 @@
 <mat-card class="edit-profile-card">
     @if (!loading()) {
+    <h2>Edit Profile</h2>
     <form [formGroup]="editForm" class="edit-profile-form">
-        <h2>Edit Profile</h2>
 
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Name</mat-label>
-            <input matInput formControlName="name" />
-            <mat-error *ngIf="editForm.get('name')?.touched && editForm.get('name')?.invalid">
-                Name is required.
-            </mat-error>
-        </mat-form-field>
 
-        <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Birth Date</mat-label>
-            <input matInput type="date" formControlName="birthDate" />
-            <mat-error *ngIf="editForm?.get('birthDate')?.touched && editForm.get('birthDate')?.invalid">
-                Birth date is required.
-            </mat-error>
-        </mat-form-field>
+        <div class="user-fields">
+            <mat-form-field class="full-width">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" />
+                <mat-error *ngIf="editForm.get('name')?.touched && editForm.get('name')?.invalid">
+                    Name is required.
+                </mat-error>
+            </mat-form-field>
 
+            <app-input-field [control]="getControl('birthDate')" [inputType]="'date'" [label]="'BirthDate'"
+                [validationMessages]="validator_map['birthDate']"></app-input-field>
+
+
+        </div>
+        
         <app-address-field [addressForm]="addressForm"></app-address-field>
+
 
         <div class="control-buttons">
             <button matButton="filled" (click)="saveChanges()">Save!</button>

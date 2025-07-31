@@ -9,12 +9,8 @@
     <app-password-field class="full-width" [control]="getControl('password')" [inputType]="'text'" [label]="'Password'"
         [validationMessages]="validator_map['password']"></app-password-field>
 
-    <mat-form-field class="birthdate-field">
-        <mat-label>Birthday</mat-label>
-        <input matInput [matDatepicker]="picker" formControlName="birthDate" placeholder="MM/DD/YYYY">
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <app-input-field class="birthDate-field" [control]="getControl('birthDate')" [inputType]="'date'" [label]="'BirthDate'"
+        [validationMessages]="validator_map['birthDate']"></app-input-field>
 
     <app-address-field [addressForm]="addressForm"></app-address-field>
 

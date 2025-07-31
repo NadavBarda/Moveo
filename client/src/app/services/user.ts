@@ -1,7 +1,8 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { User } from '../models/user';
 import { FirebaseService } from './firebase';
-import { doc, updateDoc } from 'firebase/firestore';
+import { deleteDoc, doc, updateDoc } from 'firebase/firestore';
+import { deleteUser as firebaseDeleteUser } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -21,9 +22,22 @@ export class UserService {
     this.loggedUser.update((oldUser) => ({ ...oldUser!, ...updatedUser }));
   }
 
+  async deleteUser(password: string) {
+    const user = this.firebaseService.auth.currentUser;
+    if (!user) return;
+    await this.firebaseService.reAuthenticate(password);
+    const userDocRef = doc(this.firebaseService.db, 'users', user.uid);
+    try {
+      await deleteDoc(userDocRef);
+      await firebaseDeleteUser(user);
+      this.loggedUser.set(null);
+    } catch (err) {
+      console.error('Failed to delete user:', err);
+    }
+  }
+
   async logout() {
     this.loggedUser.set(null);
     await this.firebaseService.logout();
-  
   }
 }
