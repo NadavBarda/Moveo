@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginForm } from './login-form';
 
-fdescribe('LoginForm', () => {
+describe('LoginForm', () => {
   let component: LoginForm;
   let fixture: ComponentFixture<LoginForm>;
 
@@ -17,14 +17,14 @@ fdescribe('LoginForm', () => {
     fixture.detectChanges();
   });
 
-  fit('should not emit loginTrigger if form is invalid', () => {
+  it('should not emit loginTrigger if form is invalid', () => {
     spyOn(component.loginTrigger, 'emit');
     component.loginForm.setValue({ email: '', password: '' });
     component.onSubmit();
     expect(component.loginTrigger.emit).not.toHaveBeenCalled();
   });
 
-  fit('should emit loginTrigger with correct values if form is valid', () => {
+  it('should emit loginTrigger with correct values if form is valid', () => {
     spyOn(component.loginTrigger, 'emit');
     component.loginForm.setValue({ email: 'test@example.com', password: '123456a' });
     component.onSubmit();
@@ -34,7 +34,7 @@ fdescribe('LoginForm', () => {
     });
   });
 
-  fit('should not emit loginTrigger with correct values if form is invalid', () => {
+  it('should not emit loginTrigger with correct values if form is invalid', () => {
     spyOn(component.loginTrigger, 'emit');
     component.loginForm.setValue({ email: 'test@example.com', password: '123456' });
     component.onSubmit();

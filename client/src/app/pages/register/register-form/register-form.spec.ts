@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegisterForm } from './register-form';
 import { RegisterInput } from '../../../models/auth-interface';
 
-fdescribe('RegisterForm', () => {
+describe('RegisterForm', () => {
   let component: RegisterForm;
   let fixture: ComponentFixture<RegisterForm>;
 
@@ -17,13 +17,13 @@ fdescribe('RegisterForm', () => {
     fixture.detectChanges();
   });
 
-  fit('should create the component and the form', () => {
+  it('should create the component and the form', () => {
     expect(component).toBeTruthy();
     expect(component.registerForm).toBeTruthy();
     expect(component.registerForm.valid).toBeFalsy();
   });
 
-  fit('should emit registerTrigger with correct value if form is valid', () => {
+  it('should emit registerTrigger with correct value if form is valid', () => {
     spyOn(component.registerTrigger, 'emit');
 
     component.registerForm.patchValue({
@@ -48,7 +48,7 @@ fdescribe('RegisterForm', () => {
     );
   });
 
-  fit('should not emit registerTrigger if form is invalid', () => {
+  it('should not emit registerTrigger if form is invalid', () => {
     spyOn(component.registerTrigger, 'emit');
 
     
