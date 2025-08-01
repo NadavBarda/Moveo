@@ -2,6 +2,7 @@
   position: relative;
   background-color: transparent;
   box-shadow: none;
+  max-width: 500px;
 }
 
 .control-buttons {
@@ -28,11 +29,19 @@
   position: relative;
 }
 
-
 .user-fields {
-  
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;                     
+  gap: 12px;
+}
+app-input-field,
+app-address-field {
+  width: 100%;
+  min-width: 0;
 }
 
+@media (max-width: 600px) {
+  .user-fields {
+    grid-template-columns: 1fr;
+  }
+}

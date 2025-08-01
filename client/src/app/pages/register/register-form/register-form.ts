@@ -1,5 +1,5 @@
 import { Component, inject, output, signal } from '@angular/core';
-import { AddressField } from '../address-field/address-field';
+
 import { MatInputModule } from '@angular/material/input';
 import { CancelAutoFill } from '../../../component/cancel-auto-fill/cancel-auto-fill';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
@@ -18,6 +18,7 @@ import { REGISTER_VALIDATION_MESSAGES } from '../../../models/input.model';
 import { PasswordField } from '../../../component/password-field/password-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
+import { AddressField } from '../../../component/address-field/address-field';
 
 @Component({
   selector: 'app-register-form',

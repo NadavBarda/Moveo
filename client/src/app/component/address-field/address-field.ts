@@ -2,7 +2,8 @@ import { Component, input } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { AddressFormGroup } from '../../../models/forms';
+import { AddressFormGroup } from '../../models/forms';
+
 
 @Component({
   selector: 'app-address-field',

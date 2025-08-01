@@ -3,13 +3,13 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { AddressField } from '../../pages/register/address-field/address-field';
 import { InputField } from '../input-field/input-field';
 import { UserService } from '../../services/user';
 import { createBaseForm, getFormControl } from '../../shared/utils/forms';
 import { EDIT_PROFILE_VALIDATION_MESSAGES } from '../../models/input.model';
 import { AddressFormGroup } from '../../models/forms';
 import { User } from '../../models/user';
+import { AddressField } from '../address-field/address-field';
 
 @Component({
   selector: 'app-edit-profile',
