@@ -57,7 +57,6 @@ export class AuthService {
 
   async register(registerInput: RegisterInput): Promise<void> {
     try {
-      registerInput.birthDate = convertDate(registerInput.birthDate);
       const newUser = await this.firebaseService.createUser(registerInput);
       this.userService.loggedUser.set(newUser);
     } catch (err) {

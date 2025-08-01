@@ -4,46 +4,26 @@
 @else {
 <mat-card class="profile-card">
 
-
-
-    @if (!inEditMode()) {
-    <div class="profile-header">
-        <h2>User Profile</h2>
-        <button matButton="filled" (click)="setEdit()">{{inEditMode()? 'Cancel Changes' : 'Edit Profile'}}</button>
-        <button matButton="filled" class="delete-btn"  (click)="openDeleteConfirm()">Delete</button>
-    </div>
+    @if (inEditMode()) {
+    @defer {
+    <app-edit-profile (changesSaved)="setEdit()"></app-edit-profile>
     }
-    @if(inEditMode()){
-    <app-edit-profile (changesSaved)="handleProfileUpdated()"></app-edit-profile>
     }
     @else {
+    <app-profile-header [inEditMode]="inEditMode()" (deleteTrigger)="handleDelete($event)" (editTrigger)="setEdit()" />
 
     <div class="top-profile">
         <div class="profile-field">
             <strong>Name:</strong> {{ user()?.name }}
         </div>
-
         <div class="profile-field">
             <strong>Email:</strong> {{ user()?.email }}
         </div>
-
         <div class="profile-field">
             <strong>Birth Date:</strong> {{ user()?.birthDate }}
         </div>
     </div>
-
-
-
-    <div class="address-section">
-        <h3>Address</h3>
-        <div class="address-section-body">
-            <div class="profile-field"><strong>Country:</strong> {{ user()?.address!.country }}</div>
-            <div class="profile-field"><strong>City:</strong> {{ user()?.address!.city }}</div>
-            <div class="profile-field"><strong>Street:</strong> {{ user()?.address!.street }}</div>
-            <div class="profile-field"><strong>House Number:</strong> {{ user()?.address!.houseNumber }}</div>
-        </div>
-
-    </div>
+    <app-profile-address [address]="user()?.address"></app-profile-address>
     }
 </mat-card>
 }

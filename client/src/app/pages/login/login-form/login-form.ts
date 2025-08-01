@@ -30,7 +30,5 @@ export class LoginForm {
     this.loginTrigger.emit({ email, password });
   }
 
-  getControl(name: string) {
-    return getFormControl(name, this.loginForm);
-  }
+  getControl = (name: string) => getFormControl(name, this.loginForm);
 }

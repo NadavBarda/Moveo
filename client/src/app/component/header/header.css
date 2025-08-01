@@ -23,7 +23,7 @@ a[mat-button].active-link {
   font-size: 1rem;
 }
 .right-side {
-  width: 15%;
+  gap: 10px;
   display: flex;
   justify-content: space-between;
   flex-direction: row-reverse;
@@ -31,11 +31,11 @@ a[mat-button].active-link {
 }
 
 .username {
-  font-weight: bolder;
+  font-weight: 500;
   color: #181818;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .logout-btn {
-  background: rgb(255, 195, 195);
+  background: rgba(255, 0, 0, 0.606);
 }

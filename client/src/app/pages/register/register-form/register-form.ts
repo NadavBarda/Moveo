@@ -50,9 +50,7 @@ export class RegisterForm {
     return this.registerForm.get('address') as AddressFormGroup;
   }
 
-  getControl(name: string) {
-    return getFormControl(name, this.registerForm);
-  }
+  getControl = (name: string) => getFormControl(name, this.registerForm);
 
   onSubmit() {
     if (this.registerForm.invalid) return;

@@ -16,6 +16,11 @@ export class Header {
   userService = inject(UserService);
   user = this.userService.loggedUser;
 
+  get currentRoute(): string {
+    return this.router.url;
+  }
+
+
   async logout() {
     await this.userService.logout();
     this.router.navigate(['login']);

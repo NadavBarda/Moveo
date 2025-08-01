@@ -1,0 +1,7 @@
+<div class="profile-header">
+        <h2>User Profile</h2>
+        <button matButton="filled" (click)="setEdit()">
+          {{ inEditMode() ? 'Cancel Changes' : 'Edit Profile' }}
+        </button>
+        <button matButton="filled" class="delete-btn" (click)="openDeleteConfirm()">Delete</button>
+      </div>

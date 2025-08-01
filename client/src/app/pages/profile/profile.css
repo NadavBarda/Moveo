@@ -11,12 +11,6 @@
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
-.profile-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
 
 .profile-field {
   margin: 10px 0;
@@ -28,18 +22,5 @@
 }
 .profile-field strong{
   margin-right: 0.5rem;
-}
-
-.address-section {
-  margin-top: 20px;
-  padding-top: 10px;
-}
-.address-section-body{
-  margin-left: 5%;
-}
-
-.address-section-body strong{
-  font-size: 0.9rem;
-  
 }
 

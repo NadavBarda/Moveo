@@ -8,12 +8,12 @@
     </div>
     <div class="right-side">
         @if (user()) {
-        <button mat-button="fill" class="logout-btn" (click)="logout()">logout</button>
+        <button mat-button="fill" class="logout-btn" (click)="logout()">Logout</button>
         <span class="username">Hello, {{ user()?.name }}</span>
 
         }
         @else {
-        <a mat-button routerLink="/login" routerLinkActive="active-link">Login</a>
+        <a mat-button [routerLink]="router.url === '/login' ? '/register' : '/login'" routerLinkActive="active-link">{{router.url === '/login' ? 'Register' : 'Login'}}</a>
         }
 
     </div>
