@@ -21,13 +21,9 @@ export class LoginForm {
 
   readonly validatorMap = LOGIN_VALIDATION_MESSAGES;
 
-  async onSubmit() {
+  onSubmit() {
     if (this.loginForm.invalid) return;
-
-    const email = this.loginForm.value.email ?? '';
-    const password = this.loginForm.value.password ?? '';
-
-    this.loginTrigger.emit({ email, password });
+    this.loginTrigger.emit(this.loginForm.value as LoginInput);
   }
 
   getControl = (name: string) => getFormControl(name, this.loginForm);
