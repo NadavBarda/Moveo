@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { FirebaseService } from './firebase';
 import { deleteDoc, doc, updateDoc } from 'firebase/firestore';

@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { initializeApp } from 'firebase/app';
 import {
   createUserWithEmailAndPassword,
