@@ -1,5 +1,7 @@
+
+
+
 <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off">
-    <app-cancel-auto-fill></app-cancel-auto-fill>
 
     <app-input-field class="full-width" [control]="getControl('name')" [inputType]="'text'" [label]="'Full Name'"
         [validationMessages]="validator_map['name']" />
@@ -9,8 +11,8 @@
     <app-password-field class="full-width" [control]="getControl('password')" [inputType]="'text'" [label]="'Password'"
         [validationMessages]="validator_map['password']"></app-password-field>
 
-    <app-input-field class="birthDate-field" [control]="getControl('birthDate')" [inputType]="'date'" [label]="'BirthDate'"
-        [validationMessages]="validator_map['birthDate']"></app-input-field>
+    <app-input-field class="birthDate-field" [control]="getControl('birthDate')" [inputType]="'date'"
+        [label]="'BirthDate'" [validationMessages]="validator_map['birthDate']"></app-input-field>
 
     <app-address-field [addressForm]="addressForm"></app-address-field>
 

@@ -85,4 +85,6 @@ export class FirebaseService {
 
     return newUser;
   }
+
+ 
 }

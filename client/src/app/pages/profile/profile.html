@@ -1,4 +1,4 @@
-@if (loading()) {
+@if (!userStore.user()) {
 <mat-spinner class="spinner"></mat-spinner>
 }
 @else {
@@ -23,7 +23,7 @@
             <strong>Birth Date:</strong> {{ user()?.birthDate }}
         </div>
     </div>
-    <app-profile-address [address]="user()?.address"></app-profile-address>
+    <app-profile-address [address]="user()?.address!"></app-profile-address>
     }
 </mat-card>
 }

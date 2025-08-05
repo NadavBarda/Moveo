@@ -9,6 +9,6 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class LoginFooter {
 
-  message = input<string>();
+  message = input.required<string>();
   
 }

@@ -8,5 +8,5 @@ import { Address } from '../../../models/address';
   styleUrl: './profile-address.css',
 })
 export class ProfileAddress {
-  address = input<Address>();
+  address = input.required<Address>();
 }

@@ -1,5 +1,13 @@
 <mat-card class="register-card">
     <app-register-header></app-register-header>
+    @if(userStore.loading()){
+    <mat-spinner class="spinner"></mat-spinner>
+    }
+    @else {
+
     <app-register-form (registerTrigger)="onSubmit($event)"></app-register-form>
     <app-register-footer [message]="message()"></app-register-footer>
+    }
+
+
 </mat-card>

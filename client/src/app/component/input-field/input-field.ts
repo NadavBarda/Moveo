@@ -18,13 +18,12 @@ import { inputFieldMessges } from '../../shared/utils/input-field-messages';
   styleUrl: './input-field.css',
 })
 export class InputField {
-  control = input<FormControl>();
-  validationMessages = input<ValidationMessageMap>();
-  label = input<string>();
-  inputType = input<string>();
+  control = input.required<FormControl>();
+  validationMessages = input.required<ValidationMessageMap>();
+  label = input.required<string>();
+  inputType = input.required<string>();
 
   get messages(): string[] {
-    if (!this.control() || !this.validationMessages()) return [];
-    return inputFieldMessges(this.control()!, this.validationMessages()!);
+    return inputFieldMessges(this.control(), this.validationMessages());
   }
 }

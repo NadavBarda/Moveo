@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { UserService } from '../../services/user';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { Router, RouterModule } from '@angular/router';
+import { UserStore } from '../../store/user-store';
+import { AuthService } from '../../services/auth';
 
 @Component({
   selector: 'app-header',
@@ -13,16 +14,15 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class Header {
   router = inject(Router);
-  userService = inject(UserService);
-  user = this.userService.loggedUser;
+  userStore = inject(UserStore);
+  authService = inject(AuthService);
 
   get currentRoute(): string {
     return this.router.url;
   }
 
-
   async logout() {
-    await this.userService.logout();
+    await this.authService.logout();
     this.router.navigate(['login']);
   }
 }

@@ -11,21 +11,21 @@ export const initAddressValue: Address = {
 };
 
 export type LoginForm = {
-  password: FormControl<string | null>;
-  email: FormControl<string | null>;
+  password: FormControl<string>;
+  email: FormControl<string>;
 };
 
 export type EditForm = {
-  name: FormControl<string | null>;
-  birthDate: FormControl<string | null>;
+  name: FormControl<string>;
+  birthDate: FormControl<string>;
   address: AddressFormGroup;
 };
 
 export interface RegisterForm extends EditForm, LoginForm {}
 
 export type AddressFormGroup = FormGroup<{
-  country: FormControl<string | null>;
-  city: FormControl<string | null>;
-  street: FormControl<string | null>;
-  houseNumber: FormControl<number | null>;
+  country: FormControl<string>;
+  city: FormControl<string>;
+  street: FormControl<string>;
+  houseNumber: FormControl<number>;
 }>;

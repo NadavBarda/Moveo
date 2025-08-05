@@ -1,5 +1,5 @@
 import { Component, inject, input, output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { createLoginForm, getFormControl } from '../../../shared/utils/forms';
 import { LoginInput } from '../../../models/auth-interface';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,10 +14,10 @@ import { PasswordField } from '../../../component/password-field/password-field'
   styleUrl: './login-form.css',
 })
 export class LoginForm {
-  fb = inject(FormBuilder);
+  fb = inject(NonNullableFormBuilder);
   loginForm = createLoginForm(this.fb);
   loginTrigger = output<LoginInput>();
-  loading = input<boolean>();
+  loading = input.required<boolean>();
 
   readonly validatorMap = LOGIN_VALIDATION_MESSAGES;
 

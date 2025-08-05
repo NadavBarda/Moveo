@@ -9,7 +9,7 @@ import { deleteUser as firebaseDeleteUser } from 'firebase/auth';
 })
 export class UserService {
   private firebaseService = inject(FirebaseService);
-  loggedUser = signal<User | null>(null);
+
 
   async updateUser(updatedUser: Partial<User>): Promise<void> {
     const uid = this.firebaseService.auth.currentUser?.uid;
@@ -19,7 +19,6 @@ export class UserService {
     const { ...userData } = updatedUser;
 
     await updateDoc(userDocRef, userData);
-    this.loggedUser.update((oldUser) => ({ ...oldUser!, ...updatedUser }));
   }
 
   async deleteUser(password: string) {
@@ -30,14 +29,9 @@ export class UserService {
     try {
       await deleteDoc(userDocRef);
       await firebaseDeleteUser(user);
-      this.loggedUser.set(null);
     } catch (err) {
       console.error('Failed to delete user:', err);
     }
   }
 
-  async logout() {
-    this.loggedUser.set(null);
-    await this.firebaseService.logout();
-  }
 }

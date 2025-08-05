@@ -7,13 +7,14 @@
         <span class="spacer"></span>
     </div>
     <div class="right-side">
-        @if (user()) {
+        @if (userStore.user()) {
         <button mat-button="fill" class="logout-btn" (click)="logout()">Logout</button>
-        <span class="username">Hello, {{ user()?.name }}</span>
+        <span class="username">Hello, {{ userStore.user()?.name }}</span>
 
         }
         @else {
-        <a mat-button [routerLink]="router.url === '/login' ? '/register' : '/login'" routerLinkActive="active-link">{{router.url === '/login' ? 'Register' : 'Login'}}</a>
+        <a mat-button [routerLink]="router.url === '/login' ? '/register' : '/login'"
+            routerLinkActive="active-link">{{router.url === '/login' ? 'Register' : 'Login'}}</a>
         }
 
     </div>

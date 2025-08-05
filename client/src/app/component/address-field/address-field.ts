@@ -12,5 +12,5 @@ import { AddressFormGroup } from '../../models/forms';
   styleUrl: './address-field.css',
 })
 export class AddressField {
-  addressForm = input<AddressFormGroup>();
+  addressForm = input.required<AddressFormGroup>();
 }

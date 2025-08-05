@@ -5,22 +5,24 @@ import { LoginInput } from '../../models/auth-interface';
 import { Router } from '@angular/router';
 import { LoginHeader } from './login-header/login-header';
 import { LoginForm } from './login-form/login-form';
-import { LoginFooter } from "./login-footer/login-footer";
+import { LoginFooter } from './login-footer/login-footer';
+import { UserStore } from '../../store/user-store';
 
 @Component({
   selector: 'app-login',
-  imports: [ LoginHeader, LoginForm, MatCard, LoginFooter],
+  imports: [LoginHeader, LoginForm, MatCard, LoginFooter],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
   authService = inject(AuthService);
+  userStore = inject(UserStore);
   router = inject(Router);
-  loading = signal(false);
+
   message = signal('');
 
   async onSubmit(loginInput: LoginInput) {
-    this.loading.set(true);
+    this.userStore.setLoading(true);
 
     try {
       await this.authService.login(loginInput);
@@ -28,7 +30,7 @@ export class Login {
     } catch (err) {
       this.message.set(err as string);
     } finally {
-      this.loading.set(false);
+      this.userStore.setLoading(false);
     }
   }
 }

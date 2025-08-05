@@ -1,5 +1,5 @@
 <mat-card class="edit-profile-card">
-    @if (!loading()) {
+    @if (!userStore.loading()) {
     <h2>Edit Profile</h2>
     <form [formGroup]="editForm" class="edit-profile-form">
 
@@ -25,7 +25,6 @@
         <h4>Saving Changes...</h4>
         <mat-spinner class="spinner"></mat-spinner>
     </div>
-
 
     }
 </mat-card>

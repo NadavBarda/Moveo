@@ -2,6 +2,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  NonNullableFormBuilder,
   Validators,
 } from '@angular/forms';
 import { passwordValidator } from '../validators/passwordValidator';
@@ -16,9 +17,7 @@ import {
 } from '../../models/forms';
 import { birthdayValidator } from '../validators/dateValidator';
 
-export function createBaseForm(fb: FormBuilder, user: User) {
-  
-  
+export function createBaseForm(fb: NonNullableFormBuilder, user: User) {
   return fb.group<EditForm>({
     name: fb.control(user.name, Validators.required),
     birthDate: fb.control(user.birthDate, [birthdayValidator]),
@@ -29,14 +28,14 @@ export function getFormControl(name: string, form: FormGroup) {
   return form.get(name) as FormControl;
 }
 
-export function createLoginForm(fb: FormBuilder) {
+export function createLoginForm(fb: NonNullableFormBuilder) {
   return fb.group<LoginForm>({
     password: fb.control('', passwordValidator),
     email: fb.control('', [Validators.required, Validators.email]),
   });
 }
 
-export function createRegisterForm(fb: FormBuilder) {
+export function createRegisterForm(fb: NonNullableFormBuilder) {
   return fb.group<RegisterForm>({
     name: fb.control('', Validators.required),
     birthDate: fb.control('', [birthdayValidator]),
@@ -47,7 +46,7 @@ export function createRegisterForm(fb: FormBuilder) {
 }
 
 export function createAddressFormGroup(
-  fb: FormBuilder,
+  fb: NonNullableFormBuilder,
   address: Address = initAddressValue
 ): AddressFormGroup {
   return fb.group({
